@@ -5,8 +5,7 @@
 <!-- Typography -->
 <!-- Existen 4 tipos de clases -->
 
-<div class="">
-  <h1>Typography</h1>
+<div class="mat-headile">Typography
   <!-- Se usan regularmente 1 por cada sección -->
   <div class="mat-display-4">Display 4  </div>
   <div class="mat-display-3">Display 3  </div>
@@ -98,6 +97,431 @@
     <mat-icon color="warn">grade</mat-icon>
   </div>
 </div>
+
+<div class="mat-headline"> Badges
+  <div class="marg">
+      <!-- The most basic badge -->
+      <span matBadge="5">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgePosition="below before">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgePosition="below after">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgePosition="above before">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgeSize="small">Notifications Small</span>
+  </div>
+
+  <div class="marg">
+        <span matBadge="5" matBadgeSize="medium">Notifications Medium</span>
+  </div>
+
+  <div class="marg">
+      <span matBadge="5" matBadgeSize="large">Notifications Large</span>
+  </div>
+
+  <div class="marg">
+      <span matBadge="5" matBadgeColor="primary">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgeColor="accent">Notifications</span>
+  </div>
+  <div class="marg">
+      <span matBadge="5" matBadgeColor="warn">Notifications</span>
+  </div>
+  <div class="marg">
+      <span [matBadge]="notifications" [matBadgeHidden]="notifications==0" matBadgeColor="warn" matBadgeOverlap="false">Notifications Overlap</span>
+  </div>
+  <div class="marg">
+      <span [matBadge]="notifications2" [matBadgeHidden]="notifications2==0" matBadgeColor="warn" matBadgeOverlap="false">Notifications hidden</span>
+  </div>
+</div>
+
+<div class="mat-headline">Spinner
+  <mat-progress-spinner value="40"></mat-progress-spinner>
+  <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+  <button mat-button (click)="loadData()">Load</button>
+</div>
+
+<div class="mat-headline">Toolbar
+  <mat-toolbar color="primary" class="navbar">
+    <div>Menu</div>
+    <div>
+      <mat-icon color="black">home</mat-icon><span>Home</span>
+      <mat-icon color="black">info</mat-icon><span>About</span>
+      <mat-icon color="black">settings</mat-icon><span>Settings</span>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="mat-headline">Sidenav
+  <mat-sidenav-container>
+    <!-- Los modos para sidenav son over, push,side -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">Sidenav</mat-sidenav>
+    <mat-sidenav-content>
+      Main
+      <!-- Primer metodo para cerrar o abrir el sidenav -->
+      <div class="mat-body-1">Metodo 1
+          <mat-button-toggle (click)="opened=!opened">Toggle</mat-button-toggle>
+      </div>
+    <!-- Segundo metodo para cerrar o abrir el sidenav -->
+    <div class="mat-body-1">Metodo 2
+      <mat-button-toggle (click)="sidenav.open()">Open</mat-button-toggle>
+      <mat-button-toggle (click)="sidenav.close()">Close</mat-button-toggle>
+    </div>
+    <!-- Tercer metodo para cerrar o abrir el sidenav -->
+    <div class="mat-body-1">Metodo 3
+      <mat-button-toggle (click)="sidenav.toggle()">Toggle</mat-button-toggle>
+    </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<div class="mat-headline">Menu
+  <div>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item>FrontEnd</button>
+      <button mat-menu-item>Backend</button>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">More...</button>
+    </mat-menu>
+    <button mat-flat-button [matMenuTriggerFor]="appMenu" name="button">Menu</button>
+  </div>
+  <div>
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item>Angular</button>
+      <button mat-menu-item>React</button>
+      <button mat-menu-item>Vue</button>
+    </mat-menu>
+  </div>
+  <div>
+    <mat-menu #lazyMenu="matMenu">
+      <ng-template matMenuContent let-name="name">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Log out {{name}}</button>
+      </ng-template>
+    </mat-menu>
+    <button mat-raised-button [matMenuTriggerData]="{name:'Andrés'}" [matMenuTriggerFor]="lazyMenu">Andrés</button>
+    <button mat-raised-button [matMenuTriggerData]="{name:'Hernández'}" [matMenuTriggerFor]="lazyMenu">Hernández</button>
+  </div>
+</div>
+
+<div class="mat-headline">List
+  <div>
+    <mat-list dense>
+      <mat-list-item>Item 1</mat-list-item>
+      <mat-list-item>Item 2</mat-list-item>
+      <mat-list-item>Item 3</mat-list-item>
+    </mat-list>
+  </div>
+<div>
+  <mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">Settings</a>
+    <a mat-list-item href="#">About</a>
+  </mat-nav-list>
+</div>
+<div>
+  <mat-list>
+    <mat-list-item>
+      <mat-icon matListIcon>home</mat-icon>
+      <div matLine class="mat-subheading-2">Heading</div>
+      <p matLine>Line</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-icon matListIcon>folder</mat-icon>
+      <div matLine class="mat-subheading-2">Heading</div>
+      <p matLine>Line</p>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+
+</div>
+
+
+<div class="mat-headline"> Grid List
+  <!-- Metodo 1 para los tamaños -->
+  <div class="marg">
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile rowspan="2">Tile 1 </mat-grid-tile>
+      <mat-grid-tile>Tile 2 </mat-grid-tile>
+      <mat-grid-tile>Tile 3 </mat-grid-tile>
+      <mat-grid-tile colspan="2">Tile 4 </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <!-- Metodo 2 para los tamaños -->
+  <div class="marg">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile rowspan="2">Tile 1 </mat-grid-tile>
+      <mat-grid-tile>Tile 2 </mat-grid-tile>
+      <mat-grid-tile>Tile 3 </mat-grid-tile>
+      <mat-grid-tile colspan="2">Tile 4 </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <!-- Metodo 3 para los tamaños -->
+  <div class="marg">
+    <mat-grid-list cols="2" rowHeight=fit style="height:200px">
+      <mat-grid-tile rowspan="2">Tile 1 </mat-grid-tile>
+      <mat-grid-tile>Tile 2 </mat-grid-tile>
+      <mat-grid-tile>Tile 3 </mat-grid-tile>
+      <mat-grid-tile colspan="2">Tile 4 </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <!-- Espacio entre cada grid -->
+  <div class="marg">
+    <mat-grid-list cols="2" rowHeight=fit style="height:200px" gutterSize="10px">
+      <mat-grid-tile rowspan="2">Tile 1 </mat-grid-tile>
+      <mat-grid-tile>Tile 2 </mat-grid-tile>
+      <mat-grid-tile>Tile 3 </mat-grid-tile>
+      <mat-grid-tile colspan="2">Tile 4 </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+
+
+<div class="mat-headline"> Expansion Panels and Acordeons
+  <div>
+    <!-- Para que los paneles puedan abrirse solo uno a la vez, es necesario ponerlos dentro de un accordion -->
+    <!-- En caso de que se quiera que los paneles sean independientes entre si, no se meten a un accordion -->
+    <!-- Tambien se puede agregar el atributo multi="true" en el accordion para que puedan abrirse varios paneles -->
+    <!-- Para esconder el Toggle de los paneles se agrega hideToggle -->
+    <!-- <mat-accordion multi="true" hideToggle> -->
+    <mat-accordion multi="true">
+      <div>
+        <mat-expansion-panel>
+          <!-- Necesita siempre de un header -->
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Angular Fundamentals
+            </mat-panel-title>
+          <!-- Puede incluir una descripción -->
+          <mat-panel-description>
+            Total Duration : 3hrs
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- Detalles del panel -->
+        <p>This is the panel content.  Add Course Details</p>
+        <mat-action-row>
+          <button mat-button>Enroll</button>
+        </mat-action-row>
+        </mat-expansion-panel>
+      </div>
+      <div>
+        <mat-expansion-panel>
+          <!-- Necesita siempre de un header -->
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Angular Material
+            </mat-panel-title>
+          <!-- Puede incluir una descripción -->
+          <mat-panel-description>
+            Total Duration : 2hrs
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- Detalles del panel -->
+        <p>This is the panel content.  Add Course Details</p>
+        <mat-action-row>
+          <button mat-button>Enroll</button>
+        </mat-action-row>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+
+</div>
+</div>
+
+<div class="mat-headline"> Cards
+  <div>
+    <mat-card>
+       <mat-card-title>
+         Card Title
+        </mat-card-title>
+        <mat-card-content>
+          This is the card content
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-flat-button> Login</button>
+        </mat-card-actions>
+     </mat-card>
+  </div>
+</div>
+
+
+<div class="mat-headline">Tabs
+  <div>
+    <!-- Se puede utilizar el selectedTabChange para que cuando se haga un cambio en el tab realizar una accion -->
+    <!-- <mat-tab-group #tabRef (selectedTabChange)="Funcion()"> -->
+    <mat-tab-group #tabRef>
+      <mat-tab label="Angular">Angular</mat-tab>
+      <mat-tab label="React">React</mat-tab>
+      <mat-tab label="Vue">Vue</mat-tab>
+    </mat-tab-group>
+    {{tabRef.selectedIndex}}
+  </div>
+
+</div>
+
+<div class="mat-headline"> Stepper
+  <!-- Existen 2 tipos, horizontales y verticales -->
+  <div class="marg">
+    <mat-horizontal-stepper>
+      <mat-step label="Shipping Address">
+        <p>Shipping Address Details</p>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Billing Address">
+        <p>Billing Address Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Place Order">
+        <p>Order Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <!-- Cuando se quiera que un usuario termine primero un paso antes de avanzar se utilizan los linear -->
+  <div class="marg">
+    <mat-horizontal-stepper linear>
+      <mat-step label="Shipping Address" completed="false" optional>
+        <p>Shipping Address Details</p>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Billing Address" completed="false">
+        <p>Billing Address Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Place Order" completed="false">
+        <p>Order Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <!-- Stepper vertical -->
+  <div class="marg">
+    <mat-vertical-stepper linear>
+      <mat-step label="Shipping Address" completed="false" optional>
+        <p>Shipping Address Details</p>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Billing Address" completed="false">
+        <p>Billing Address Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Place Order" completed="false">
+        <p>Order Details</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+
+</div>
+
+
+<div class="mat-headline"> Inputs
+  <div class="mat-subheading-2">
+    <!-- Cualquier tag de formulario debe de estar dentro de un form-field -->
+    <mat-form-field>
+      <!-- Input basico -->
+      <!-- <input matInput> -->
+      <mat-label>Name </mat-label>
+      <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field floatLabel="never">
+      <mat-label>Name </mat-label>
+      <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field floatLabel="always">
+      <mat-label>Name </mat-label>
+      <!-- Si se quiere esconder el * del required, se agrega la propiedad hideRequiredMarker -->
+      <input matInput required>
+    </mat-form-field>
+    <br>
+    <mat-form-field >
+      <mat-label>Name </mat-label>
+      <input matInput required>
+      <!-- Por default se alinea a la izquierda -->
+      <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+    <br>
+    <!-- Existen varios tipos de appearance como legacy,fill,outline standard -->
+    <!-- Se pueden agregar colores -->
+    <!-- Se pueden agregar clases para que apliquen en ciertos casos, se necesita saber Angular forms -->
+    <mat-form-field appearance="outline">
+      <mat-label>Name </mat-label>
+      <input matInput>
+      <!-- Por default se alinea a la izquierda -->
+      <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+  </div>
+</div>
+
+
+<div class="mat-headline">Select
+  <div class="mat-subheading-2">
+  <mat-form-field>
+    <mat-label>Topic </mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option>None</mat-option>
+      <mat-option value="Angular">Angular</mat-option>
+      <mat-option value="React">React</mat-option>
+      <mat-option value="Vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+  {{selectedValue}}
+  </div>
+  <!-- El ngFor no es algo de angular material y se deben de buscar otras soluciones para implementar -->
+  <div class="mat-subheading-2">
+  <mat-form-field>
+    <mat-label>Topic </mat-label>
+    <mat-select [(value)]="selectedValue" multiple>
+      <mat-option>None</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="Angular">Angular</mat-option>
+        <mat-option value="React">React</mat-option>
+        <mat-option value="Vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="Ionic">Ionic</mat-option>
+        <mat-option value="ReactNative">React Native</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  {{selectedValue}}
+  </div>
+</div>
+
+
+
+
 <div class="mat-caption">
   Examples
 </div>

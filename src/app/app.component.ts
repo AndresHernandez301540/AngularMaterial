@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularMaterial';
+  notifications=2;
+  notifications2=0;
+  showSpinner=false;
+  opened=false;
+  selectedValue='';
+  loadData(){
+    this.showSpinner=true;
+    setTimeout(()=>{
+      this.showSpinner=false;
+    },5000);
+  }
+
+
+
 }
