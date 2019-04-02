@@ -1,20 +1,103 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Angular Material -->
+<h1>Hello world - Angular Material</h1>
+<button mat-button>Hello World</button>
+<button mat-raised-button>Hello World</button>
+<!-- Typography -->
+<!-- Existen 4 tipos de clases -->
 
+<div class="">
+  <h1>Typography</h1>
+  <!-- Se usan regularmente 1 por cada sección -->
+  <div class="mat-display-4">Display 4  </div>
+  <div class="mat-display-3">Display 3  </div>
+  <div class="mat-display-2">Display 2  </div>
+  <div class="mat-display-1">Display 1  </div>
+
+  <!-- Son equivalentes a los h1,h2,h3,h4 -->
+  <!-- Se pueden usar varios por sección -->
+  <div class="mat-headline">This is a heading for h1  </div>
+  <div class="mat-title">This is a heading for h2  </div>
+  <div class="mat-subheading-2">This is a heading for h3  </div>
+  <div class="mat-subheading-1">This is a heading for h4 </div>
+
+  <!-- Son body tags -->
+  <div class="mat-body-1">This is a body text  </div>
+  <div class="mat-body-2">This is a bold body text  </div>
+  <div class="mat-caption">This is a caption text </div>
+
+  <!-- Para utilizar los tags normales se importa el mat-typography y asi podemos usar los tags regulares de html -->
+  <div class="mat-typography">
+    <h1>This is a heading for h1</h1>
+    <h2>This is a heading for h2</h2>
+    <h3>This is a heading for h3</h3>
+    <h4>This is a heading for h4</h4>
+  </div>
+
+</div>
+
+<div class="mat-headline"> Buttons
+  <div >
+    <button mat-button >Simplest Button on Angular Material</button>
+    <button mat-raised-button name="button">Click!</button>
+    <button mat-flat-button name="button">Click!</button>
+    <button mat-stroked-button name="button">Click!</button>
+  </div>
+  <div class="mat-headline"> Circle Buttons </div>
+  <div>
+    <button mat-icon-button>Icon</button>
+    <button mat-fab>Fab</button>
+    <button mat-mini-fab>Mini Fab</button>
+  </div>
+  <div class="mat-headline"> Color Buttons </div>
+  <div>
+    <button color="primary" mat-button >Primary</button>
+    <button color="accent" mat-button >Accent</button>
+    <button color="warning" mat-button >Warn</button>
+    <button color="primary" mat-raised-button >Primary</button>
+    <button color="accent" mat-raised-button >Accent</button>
+    <button color="warn" mat-raised-button >Warn</button>
+  </div>
+  <div class="mat-headline"> Disable Ripple
+  <!-- El efecto que tiene un button al hacerle click -->
+    <button color="warning" disableRipple mat-button >Warn</button>
+  </div>
+</div>
+
+<div class="mat-headline">Button Toggle
+  <div>
+    <mat-button-toggle #toggleBtn checked>Toggle</mat-button-toggle>
+    <mat-button-toggle disabled>Toggle</mat-button-toggle>
+    {{toggleBtn.checked}}
+  </div>
+
+</div>
+
+<div class="mat-headline">Button Toggle Group
+  <div>
+    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup">
+      <mat-button-toggle value="React">React</mat-button-toggle>
+      <mat-button-toggle value="Angular">Angular</mat-button-toggle>
+      <mat-button-toggle value="Vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+  {{toggleGroup.value}}
+  </div>
+  <div>
+    <mat-button-toggle-group #toggleGroup2="matButtonToggleGroup" multiple>
+      <mat-button-toggle value="React">React</mat-button-toggle>
+      <mat-button-toggle value="Angular">Angular</mat-button-toggle>
+      <mat-button-toggle value="Vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+  {{toggleGroup2.value}}
+  </div>
+</div>
+
+<div class="mat-headline"> Icons
+  <div class="">
+    <mat-icon color="primary">grade</mat-icon>
+    <mat-icon color="accent">grade</mat-icon>
+    <mat-icon color="warn">grade</mat-icon>
+  </div>
+</div>
+<div class="mat-caption">
+  Examples
+</div>
