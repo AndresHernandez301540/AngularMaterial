@@ -7,6 +7,10 @@ import {MaterialModule} from './material/material.module'; // Se importa el modu
 
 //Sidenav
 import {FormsModule} from '@angular/forms';
+// Filter Autocomplete
+import {ReactiveFormsModule} from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

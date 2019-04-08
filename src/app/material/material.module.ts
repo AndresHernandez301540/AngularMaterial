@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatButtonToggleModule,MatIconModule} from '@angular/material'; // Se importa el material para botones
+import {MatButtonModule,MatButtonToggleModule,MatIconModule, MatCheckbox} from '@angular/material'; // Se importa el material para botones
 // Badges
 import {MatBadgeModule} from '@angular/material/badge';
 //Spinner
@@ -29,6 +29,15 @@ import {MatFormFieldModule} from '@angular/material'
 import {MatInputModule} from '@angular/material/input';
 //Select
 import {MatSelectModule} from '@angular/material/select';
+// Autocomplete
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+// CheckBox and RadioButtons
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+// DatePicker
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+
 
 // Se crea un arreglo donde se estaran importando los modulos a usar para solo agregarlos una vez y no escribir en el import y export lo mismo
 const MaterialComponents=[
@@ -49,7 +58,12 @@ const MaterialComponents=[
   MatStepperModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatAutocompleteModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ]
 
 @NgModule({
